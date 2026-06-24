@@ -1,4 +1,5 @@
 const GITHUB_API = "https://api.github.com";
+export const MAX_REPOSITORIES = 35;
 
 interface GitHubUser {
   login: string;
@@ -55,12 +56,13 @@ export async function fetchGitHubProfile(username: string) {
     if (batch.length < 100) break;
   }
 
-  const withReadmes = await mapWithConcurrency(repositories, 8, async (repository) => ({
+  const repositoriesToAnalyze = repositories.slice(0, MAX_REPOSITORIES);
+  const withReadmes = await mapWithConcurrency(repositoriesToAnalyze, 8, async (repository) => ({
     ...repository,
     readme: await fetchReadme(repository.full_name),
   }));
 
-  return { user, repositories: withReadmes };
+  return { user, repositories: withReadmes, totalRepositories: repositories.length };
 }
 
 async function fetchReadme(fullName: string): Promise<string | null> {

@@ -11,7 +11,7 @@ export async function POST(request: Request) {
       return Response.json({ error: "Enter a valid GitHub username or profile URL." }, { status: 400 });
     }
 
-    const { user, repositories } = await fetchGitHubProfile(username);
+    const { user, repositories, totalRepositories } = await fetchGitHubProfile(username);
     if (repositories.length === 0) {
       return Response.json({ error: "This profile has no public repositories to analyze." }, { status: 404 });
     }
@@ -25,6 +25,7 @@ export async function POST(request: Request) {
         profileUrl: user.html_url,
       },
       repositories: assessments,
+      totalRepositories,
     });
   } catch (error) {
     const message = error instanceof Error ? error.message : "UNKNOWN_ERROR";

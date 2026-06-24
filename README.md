@@ -7,7 +7,7 @@ RepoScope is an AI-powered GitHub portfolio reviewer. Enter a GitHub username or
 ## Features
 
 - Accepts a GitHub username or full profile URL
-- Fetches all public repositories from the GitHub API
+- Fetches up to the 35 most recently updated public repositories
 - Reads each repository's README file
 - Uses OpenAI to classify projects as Basic, Intermediate, Advanced, or Expert
 - Produces a short, readable assessment for every project

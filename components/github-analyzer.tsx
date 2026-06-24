@@ -88,7 +88,11 @@ export function GithubAnalyzer() {
                 <p>@{result.user.username}</p>
               </div>
             </div>
-            <p className="results-count">{result.repositories.length} public {result.repositories.length === 1 ? "repository" : "repositories"}</p>
+            <p className="results-count">
+              {result.repositories.length < result.totalRepositories
+                ? `${result.repositories.length} of ${result.totalRepositories} repositories analyzed`
+                : `${result.repositories.length} public ${result.repositories.length === 1 ? "repository" : "repositories"}`}
+            </p>
           </div>
           <div className="repo-list">
             {result.repositories.map((repository) => (

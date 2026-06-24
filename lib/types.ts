@@ -20,4 +20,5 @@ export interface AnalysisResult {
     profileUrl: string;
   };
   repositories: RepositoryAssessment[];
+  totalRepositories: number;
 }
