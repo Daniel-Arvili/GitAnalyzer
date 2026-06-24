@@ -229,22 +229,6 @@ a {
   height: 15px;
 }
 
-.examples {
-  margin: 13px 4px 0;
-  color: #8a8f8b;
-  font-size: 12px;
-  text-align: center;
-}
-
-.examples button {
-  padding: 0;
-  border: 0;
-  color: var(--green);
-  background: none;
-  font-weight: 650;
-  cursor: pointer;
-}
-
 .status-card,
 .error-card {
   margin-top: 30px;

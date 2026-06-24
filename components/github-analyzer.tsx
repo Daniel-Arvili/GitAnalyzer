@@ -59,14 +59,6 @@ export function GithubAnalyzer() {
           {isLoading ? "Analyzing…" : "Analyze profile"}
         </button>
       </form>
-      {!result && !isLoading && !error && (
-        <p className="examples">
-          Try an example: <button type="button" onClick={() => setProfile("sindresorhus")}>sindresorhus</button>
-          {" · "}
-          <button type="button" onClick={() => setProfile("cassidoo")}>cassidoo</button>
-        </p>
-      )}
-
       {isLoading && (
         <div className="status-card" role="status">
           <span className="spinner" />
